@@ -1,0 +1,496 @@
+div{
+    margin: 10px;
+    padding:0;
+    text-align: center;
+    text-decoration-color: beige;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vh;
+    cursor: url('./Components/Magnifier.png'), auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(200deg, black);
+}
+
+#Introduction{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.ElephantIntro{
+    width: 70%;
+    position: absolute;
+    left: 150%;
+    transform: translate(40%, -10%);
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-size: 12px;
+    background-color: rgba(3, 2, 2, 0.477);
+    /* padding: 5px; */
+    border-radius: 10px;
+    max-width: 70%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+.ElephantIntro img{
+    width: 60%;
+    align-items: center;
+    border-radius: 10px;
+    opacity: 1;
+    background-color: #000000;
+    transition: opacity 0.3s ease;
+}
+.ElephantIntro:hover{
+    opacity: 1;
+}
+
+.BookIntro{
+    width: 50%;
+    position: absolute;
+    left: -130%;
+    transform: translate(40%, -10%);
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-size: 12px;
+    background-color: rgba(3, 2, 2, 0.477);
+    /* padding: 5px; */
+    border-radius: 10px;
+    max-width: 70%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+.BookIntro img{
+    width: 60%;
+    align-items: center;
+    border-radius: 10px;
+    opacity: 1;
+    background-color: #000000;
+    transition: opacity 0.3s ease;
+}
+.BookIntro:hover{
+    opacity: 1;
+}
+
+.HeartIntro{
+    width: 60%;
+    position: absolute;
+    right: 70%;
+    transform: translate(-40%, -10%);
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-size: 12px;
+    background-color: rgba(3, 2, 2, 0.477);
+    padding: 5px;
+    border-radius: 10px;
+    max-width: 70%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.HeartIntro img{
+    width:60%; 
+    top:20%; 
+    right:150%;
+    margin-right: 10px;
+    background-color: rgba(255, 251, 251, 0);
+    align-items: center;
+    border-radius: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+.HeartIntro:hover{
+    opacity: 1;
+}
+
+.BalloonIntro{
+    width: 50%;
+    position: absolute;
+    left: 120%;
+    transform: translate(40%, -10%);
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-size: 12px;
+    background-color: rgba(3, 2, 2, 0.477);
+    /* padding: 5px; */
+    border-radius: 10px;
+    max-width: 70%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+.BalloonIntro img{
+    width: 60%;
+    align-items: center;
+    border-radius: 10px;
+    opacity: 1;
+    background-color: #000000;
+    transition: opacity 0.3s ease;
+}
+.BalloonIntro:hover{
+    opacity: 1;
+}
+
+/* 流星效果 */
+span{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    width: 4px;
+    height:4px;
+    border-radius: 50%;
+    background-color: #ffffff77;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
+                0 0 0 8px rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(255, 255, 255, 1);
+    animation: animate 5s linear infinite;
+}
+
+/* 分散位置和不同频率 */
+span:nth-child(1){
+    top: 5%;
+    left: 8%;
+    left: initial;
+    animation-delay: 0s;
+    animation-duration: 2.8s;
+}
+
+span:nth-child(2){
+    top: 14%;
+    right: 60px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 4.5s;
+}
+
+span:nth-child(3){
+    top: 22%;
+    left: 180px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3.2s;
+}
+
+span:nth-child(4){
+    top: 9%;
+    right: 120px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 2.6s;
+}
+
+span::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform:translateY(-50%);
+    width: 300px;
+    height: 3px;
+    background: linear-gradient(90deg, #ffffff83);
+}
+
+
+#container{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./Components/Planet.png);
+    background-size: cover;
+    background-position: center;
+}
+
+/* @keyframes animateBg{
+    0%,100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+} */
+
+@keyframes animate{
+    0%{
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    90%{
+        opacity:1;
+    }
+    100%{
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+
+/* 流星效果结束 */
+
+.Elephant{
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-75%, -50%);
+}
+
+.Elephant img{
+    width: 150%;
+    transform-origin: center;
+    transition: transform 0.18s ease;
+    will-change: transform;
+}
+
+.Elephant img:hover{
+    cursor: pointer;
+    transform: scale(1.08);
+}
+
+.Book{
+    width: 250px;
+    height: 250px;
+    animation: move 6s linear infinite;
+}
+
+.Book{
+    width: 250px;
+    height: 250px;
+    animation: move 6s linear infinite;
+    border: 1px dashed #7e76768d;
+    border-radius: 50%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.Book img{
+    width: 35%;
+    transform-origin: center;
+    animation: keep-upright 6s linear infinite;
+    transition: transform 0.3s ease; /* 平滑过渡 */
+}
+
+.Book:hover {
+    animation: none; /* 彻底停止容器动画，避免动画继续影响 transform */
+    transform: translate(-50%, -50%) rotate(0deg); /* 保持居中且无旋转 */
+}
+.Book:hover img{
+    animation: none; /* 停止图片自身的旋转 */
+    transform: scale(1.08) rotate(0deg); /* 轻微放大且不旋转 */
+    cursor: pointer;
+}
+
+.Heart{
+    width: 440px;
+    height: 440px;
+    animation: move 10s linear infinite;
+}
+
+.Heart img{
+    width: 18%;
+    transform-origin: center;
+    animation: keep-upright 10s linear infinite;
+}
+
+.Balloon{
+    width: 600px;
+    height: 600px;
+    animation: move 12s linear infinite;
+}
+
+.Balloon img{
+    width: 10%;
+    transform-origin: center;
+    animation: keep-upright 12s linear infinite;
+}
+
+.Book, .Heart, .Balloon{
+    border: 1px dashed #7e76768d;
+    border-radius: 50%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes move {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+    
+}
+@keyframes keep-upright {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+}
+
+.Trumpet{
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    top:15%;
+    left:70%;
+    transform: translate(-50%, -50%);
+}
+.Trumpet img{
+    width: 50%;
+    transform-origin: center;
+    transition: transform 0.18s ease;
+    will-change: transform;
+}
+.Trumpet img:hover{
+    cursor: pointer;
+    transform: scale(1.08);
+}
+
+.description {
+    position: absolute;
+    background-color: rgb(235, 167, 30);
+    color: rgb(97, 57, 0);
+    padding: 200px 5px;
+    border-radius: 10px;
+    font-size: 14px;
+    max-width: 500px;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+    pointer-events: none;
+}
+        
+.description-left {
+    right: calc(100% + 20px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: max-content;
+    max-width: min(50vw, 500px);
+    box-sizing: border-box;
+    padding: 12px 16px; /* 覆盖之前的过大内边距，按内容自适应 */
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.description-right {
+    left: calc(100%);
+    top: 50%;
+    transform: translateY(-50%);
+    width: max-content;
+    max-width: min(50vw, 500px);
+    box-sizing: border-box;
+    padding: 12px 16px;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.component-container {
+    position: absolute;
+    display: inline-block;
+}
+        
+.component-container:hover .description {
+    opacity: 0.9;
+}
+        
+/* 停止动画的类 */
+.stop-animation {
+    animation-play-state: paused !important;
+}
+
+/* 让 stop-animation 同样作用于子元素（图片），彻底移除动画并固定 transform */
+.stop-animation,
+.stop-animation * {
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    animation: none !important;
+    animation-play-state: paused !important;
+}
+
+.stop-animation {
+    transform: translate(-50%, -50%) rotate(0deg) !important;
+}
+
+.stop-animation img {
+    transform-origin: center !important;
+    transform: scale(1.08) rotate(0deg) !important;
+    cursor: pointer;
+}
+
+/* 图片悬停效果 */
+/* .container{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container.box{
+    position: relative;
+    width: 100px;
+    height:100px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.container.box.img-box{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.container.box .img-box:hover{
+    transform: scale(1.1);
+    box-shadow: 0 25px 40px rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+
+.container.box.text-box{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+    transition: height 0.3s ease;
+} */
