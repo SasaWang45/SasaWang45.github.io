@@ -1,0 +1,194 @@
+/* Elephant that fills the viewport. Uses vw/vh so it scales with the window. */
+:root{
+  --ele-w: 600px; /* fixed elephant width */
+  --ele-h: 600px; /* fixed elephant height */
+  --ele-color: #7a7f86; /* gray elephant color */
+}
+
+html,body{
+  height:100%;
+  margin:0;
+}
+
+.scene{
+  width:100vw;
+  height:100vh;
+  background: linear-gradient(#b3e5ff, #87ceeb); /* sky */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.elephant{
+  position:relative;
+  width:var(--ele-w);
+  height:var(--ele-h);
+  transform: translateY(5vh);
+}
+
+/* body */
+.body{
+  position:absolute;
+  /* place body to the right side, leaving room for the head */
+  left:369px;
+  top:210px;
+  width:336px; /* 56% of 600 */
+  height:48%;
+  background: var(--ele-color);
+  border-radius: 40% 40% 30% 30% / 40% 40% 30% 30%;
+  z-index:2; /* behind head */
+  border: 3px solid rgba(0,0,0,0.12);
+}
+
+/* head */
+.head{
+  position:absolute;
+  /* enlarge face and tilt more to the right */
+  left:20px;
+  top:80px;
+  width:320px; /* larger face */
+  height:360px;
+  background: var(--ele-color);
+  border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
+  z-index:4; /* on top of body */
+  transform: rotate(12deg); /* tilt head more to the right */
+  border: 3px solid rgba(0,0,0,0.18);
+}
+
+/* ears */
+.ear{
+  position:absolute;
+  width:216px; /* 36% of 600 */
+  height:360px; /* 60% of 600 */
+  background: var(--ele-color);
+  border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
+  z-index:1; /* behind head and body */
+  opacity:0.98;
+  border: 3px dashed rgba(0,0,0,0.15);
+}
+.ear-left{
+  /* left ear sits to the left of head */
+  left:-116px;
+  top:40px;
+  transform: rotate(-14deg) scaleY(1.05);
+}
+.ear-right{
+  /* right ear slightly overlaps head's right */
+  left:200px;
+  top:28px;
+  transform: rotate(14deg) scaleY(1.05);
+}
+
+/* eye (position relative to head) */
+.eye{
+  position:absolute;
+  /* absolute pixel position: will be aligned to trunk center and 30px above trunk top */
+  left:343px;
+  top:284px;
+  width:42px;
+  height:42px;
+  background: #111;
+  border-radius:50%;
+  box-shadow: 0 0 0 6px rgba(255,255,255,0.08) inset;
+  z-index:6;
+  border: 3px solid rgba(255,255,255,0.9);
+}
+
+/* trunk (position relative to head) */
+.trunk{
+  position:absolute;
+  /* absolute pixel trunk relative to elephant: place in mid-lower of the enlarged face */
+  left:304px; /* positioned into the mid-lower area of face */
+  top:314px;  /* trunk top aligned to lower-middle of face */
+  width:120px;
+  height:336px;
+  background: var(--ele-color);
+  border-radius: 40% 40% 50% 50% / 40% 40% 60% 60%;
+  transform: rotate(8deg);
+  z-index:5;
+  border: 3px solid rgba(0,0,0,0.18);
+}
+.trunk-tip{
+  position:absolute;
+  right:-18px;
+  bottom:-20px;
+  width:64px;
+  height:120px;
+  background: var(--ele-color);
+  border-radius:50% 50% 50% 50% / 60% 60% 60% 60%;
+  border: 3px solid rgba(0,0,0,0.18);
+}
+
+/* tusks (relative to head) */
+.tusk{
+  position:absolute;
+  bottom:120px;
+  width:40px;
+  height:72px;
+  background: #fff;
+  border-radius: 50% 50% 20% 20% / 50% 50% 20% 20%;
+  opacity:0.95;
+  z-index:6;
+  border: 2px solid rgba(0,0,0,0.12);
+}
+.tusk-left{
+  left:320px;
+  transform: rotate(-18deg) translateY(-6%);
+}
+.tusk-right{
+  left:372px;
+  transform: rotate(12deg) translateY(-4%);
+}
+
+/* mouth on the head */
+.mouth{
+  position:absolute;
+  /* mouth sits on lower part of face */
+  left:212px;
+  top:332px;
+  width:124px;
+  height:52px;
+  background: rgba(0,0,0,0.12);
+  border-radius: 50%/100%;
+  transform: rotate(-6deg);
+  z-index:7;
+  border: 2px solid rgba(0,0,0,0.12);
+}
+
+/* legs (relative to body) */
+.leg{
+  position:absolute;
+  bottom:0;
+  width:12%;
+  height:30%;
+  background: var(--ele-color);
+  border-radius:20px;
+  z-index:6;
+}
+.leg-front{
+  left:96px;
+}
+.leg-back{
+  left:288px;
+}
+
+/* tail (relative to body) */
+.tail{
+  position:absolute;
+  right:36px;
+  bottom:72px;
+  width:36px;
+  height:144px;
+  background: var(--ele-color);
+  border-radius:30px;
+  transform: rotate(20deg);
+  z-index:3;
+}
+
+/* make responsive adjustments on small screens */
+@media (max-width:640px){
+  /* on small screens scale down to fit */
+  :root{ --ele-w: 90vw; --ele-h: 70vh; }
+  .eye{ width:8%; height:8%; }
+}
